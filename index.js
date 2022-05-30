@@ -4,6 +4,7 @@ import { renderText, setActiveLink, renderTemplate, loadTemplate} from "./utils.
 import { fetchRiders, loadTeamSelect, selectOnChange, modalButton, addRiderButton } from "./pages/riders/riders.js";
 import { fetchRider, loadTeamsSelectManage, deleteButton, editButton } from "./pages/manage-rider/manage-rider.js";
 import { fetchRidersClassification } from "./pages/classification/classification.js";
+import { loadTeamsClassification } from "./pages/teams-classification/teams-classification.js";
 
 window.addEventListener("load", async () => {
 
@@ -12,6 +13,7 @@ window.addEventListener("load", async () => {
   const templateRiders = await loadTemplate("./pages/riders/riders.html")
   const templateManageRider = await loadTemplate("./pages/manage-rider/manage-rider.html")
   const templateClassification = await loadTemplate("./pages/classification/classification.html")
+  const templateTeamsClassification = await loadTemplate("./pages/teams-classification/teams-classification.html")
 
   const router = new Navigo("/", { hash: true });
   router
@@ -41,6 +43,10 @@ window.addEventListener("load", async () => {
     .on("/classification", () => {
       renderTemplate(templateClassification, "content")
       fetchRidersClassification()
+    })
+    .on("/teams-classification", () => {
+      renderTemplate(templateTeamsClassification, "content")
+      loadTeamsClassification()
     })
     .on("/show-match", (match) => renderText(`<pre>${JSON.stringify(match, null, 2)}</pre>`, "content"))
     .notFound(() => renderText("No page for this route found", "content"))
