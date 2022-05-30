@@ -9,7 +9,7 @@ export function fetchRiders() {
            
             const rows = riders.map(rider => 
                 `
-                <tr onclick="window.location='#/manage-candidate/?id=${rider.id}';" style="cursor: pointer;">
+                <tr onclick="window.location='#/manage-rider/?id=${rider.id}';" style="cursor: pointer;">
                   <td>${rider.name}</td>
                   <td>${rider.birthDay}</td>
                   <td>${rider.country}</td>
@@ -62,7 +62,7 @@ function filterList() {
 
             const rows = riders.filter(rider => rider.teamName.toUpperCase() == input).map(rider =>
                 `
-                <tr onclick="window.location='#/manage-candidate/?id=${rider.id}';" style="cursor: pointer;">
+                <tr onclick="window.location='#/manage-rider/?id=${rider.id}';" style="cursor: pointer;">
                   <td>${rider.name}</td>
                   <td>${rider.birthDay}</td>
                   <td>${rider.country}</td>
