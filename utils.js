@@ -110,7 +110,6 @@ export function adjustForMissingHash() {
 */
 
 
-
 export function parseISO8601Duration (iso8601Duration) {
     const iso8601DurationRegex = /(-)?P(?:([.,\d]+)Y)?(?:([.,\d]+)M)?(?:([.,\d]+)W)?(?:([.,\d]+)D)?T(?:([.,\d]+)H)?(?:([.,\d]+)M)?(?:([.,\d]+)S)?/;
     let matches = iso8601Duration.match(iso8601DurationRegex);

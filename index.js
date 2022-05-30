@@ -5,7 +5,7 @@ import { fetchRiders, loadTeamSelect, selectOnChange, modalButton, addRiderButto
 import { fetchRider, loadTeamsSelectManage, deleteButton, editButton } from "./pages/manage-rider/manage-rider.js";
 import { fetchRidersClassification } from "./pages/classification/classification.js";
 import { loadTeamsClassification } from "./pages/teams-classification/teams-classification.js";
-import { loadJerseys } from "./pages/jerseys/jerseys.js";
+import { fetchRidersJerseys } from "./pages/jerseys/jerseys.js";
 
 window.addEventListener("load", async () => {
 
@@ -52,7 +52,8 @@ window.addEventListener("load", async () => {
     })
     .on("/jerseys", () => {
       renderTemplate(templateJerseys, "content")
-      loadJerseys()
+      //loadJerseys()
+      fetchRidersJerseys()
     })
     .on("/show-match", (match) => renderText(`<pre>${JSON.stringify(match, null, 2)}</pre>`, "content"))
     .notFound(() => renderText("No page for this route found", "content"))

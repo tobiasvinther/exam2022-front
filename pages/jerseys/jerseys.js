@@ -1,3 +1,4 @@
+/*
 const jerseys = [{"name" : "Den gule føretrøje"}, {"name" : "Den grønne pointtrøje"}, {"name" : "Den prikkede bjergtrøje"}, {"name" : "Den hvide trøje"}]
 
 export function loadJerseys() {
@@ -26,4 +27,34 @@ export function loadJerseys() {
             `
         newListItem.innerHTML = newListItemBody
     })
+}
+*/
+
+const URL = "http://localhost:8080/api"
+
+export function fetchRidersJerseys() {
+    fetch(URL + "/riders")
+        .then(res => res.json())
+        .then(riders => {
+
+            riders.sort(function(a, b){return a.rideTimeLong - b.rideTimeLong})
+
+            let winner = riders[0]
+
+            document.getElementById("yellow-id").innerText = winner.name + " (" + winner.rideTimeString + ")"
+
+            riders.sort(function(a, b){return b.sprintPoints - a.sprintPoints})
+
+            winner = riders[0]
+
+            document.getElementById("green-id").innerText = winner.name + " (" + winner.sprintPoints + " point)"
+
+            riders.sort(function(a, b){return b.mountainPoints - a.mountainPoints})
+
+            winner = riders[0]
+
+            document.getElementById("dotted-id").innerText = winner.name + " (" + winner.mountainPoints + " point)"
+                
+        })  
+            
 }
