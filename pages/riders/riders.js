@@ -10,7 +10,10 @@ export function fetchRiders() {
             const rows = riders.map(rider => 
                 `
                 <tr onclick="window.location='#/manage-rider/?id=${rider.id}';" style="cursor: pointer;">
-                  <td>${rider.name}</td>
+                  <td><img
+                  src="https://flagcdn.com/h20/fr.png"
+                  height="20"
+                  alt="South Africa"> ${rider.name}</td>
                   <td>${rider.birthDay}</td>
                   <td>${rider.country}</td>
                   <td value="${rider.teamName}">${rider.teamName}</td>
