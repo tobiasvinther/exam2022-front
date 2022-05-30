@@ -1,0 +1,70 @@
+<template>
+    <div class="container">
+      <h2>Ryttere</h2>
+      <div class="col-3 my-3">
+        <select id="team-select" class="form-select">
+          <option value="ALLE HOLD">Alle hold</option>
+        </select>
+      </div>
+  
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Navn</th>
+            <th>Fødselsdag</th>
+            <th>Land</th>
+            <th>Hold</th>
+          </tr>
+        <tbody id="rider-tbody-id"></tbody>
+        </thead>
+      </table>
+  
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal" id="modal-add-id">
+        Opret rytter
+      </button>
+  
+      <!-- Modal for creating new rider -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Opret ny rytter</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-groupmy-2">
+                    <label for="name-id">Navn</label>
+                    <input type="text" class="form-control" id="name-id" placeholder="">
+                  </div>
+                  <!--
+                  <div class="form-group my-2">
+                    <label for="birthday-id">Fødselsdag</label>
+                    <input type="date" class="form-control" id="birthday-id" placeholder="">
+                  </div>
+                  -->
+                </div>
+                <div class="form-groupmy-2">
+                    <label for="country-id">Land</label>
+                    <input type="text" class="form-control" id="country-id" placeholder="">
+                  </div>
+                <div class="form-row">
+                  <div class="form-group my-2">
+                    <label for="team-select-modal">Hold</label>
+                    <select class="form-control form-select" id="team-select-modal">
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Luk</button>
+              <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" id="btn-add-id">Gem kandidat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </template>
