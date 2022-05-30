@@ -7,7 +7,11 @@ export function fetchRidersClassification() {
         .then(res => res.json())
         .then(riders => {
 
-            riders.sort(function(a, b){return a.rideTime - b.rideTime})
+            riders.sort(function(a, b){return a.rideTimeLong - b.rideTimeLong})
+
+            riders.forEach(rider => {
+                console.log(rider.rideTimeString)
+            })
            
             const rows = riders.map(rider => 
                 `
@@ -16,7 +20,7 @@ export function fetchRidersClassification() {
                   <td>${rider.name}</td>
                   <td>${rider.country}</td>
                   <td value="${rider.teamName}">${rider.teamName}</td>
-                  <td>${parseISO8601Duration(rider.rideTime)}</td>
+                  <td>${rider.rideTimeString}</td>
                   
                 </tr>
                 `

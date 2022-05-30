@@ -5,6 +5,7 @@ import { fetchRiders, loadTeamSelect, selectOnChange, modalButton, addRiderButto
 import { fetchRider, loadTeamsSelectManage, deleteButton, editButton } from "./pages/manage-rider/manage-rider.js";
 import { fetchRidersClassification } from "./pages/classification/classification.js";
 import { loadTeamsClassification } from "./pages/teams-classification/teams-classification.js";
+import { loadJerseys } from "./pages/jerseys/jerseys.js";
 
 window.addEventListener("load", async () => {
 
@@ -14,6 +15,7 @@ window.addEventListener("load", async () => {
   const templateManageRider = await loadTemplate("./pages/manage-rider/manage-rider.html")
   const templateClassification = await loadTemplate("./pages/classification/classification.html")
   const templateTeamsClassification = await loadTemplate("./pages/teams-classification/teams-classification.html")
+  const templateJerseys = await loadTemplate("./pages/jerseys/jerseys.html")
 
   const router = new Navigo("/", { hash: true });
   router
@@ -47,6 +49,10 @@ window.addEventListener("load", async () => {
     .on("/teams-classification", () => {
       renderTemplate(templateTeamsClassification, "content")
       loadTeamsClassification()
+    })
+    .on("/jerseys", () => {
+      renderTemplate(templateJerseys, "content")
+      loadJerseys()
     })
     .on("/show-match", (match) => renderText(`<pre>${JSON.stringify(match, null, 2)}</pre>`, "content"))
     .notFound(() => renderText("No page for this route found", "content"))

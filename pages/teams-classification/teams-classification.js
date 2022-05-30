@@ -7,14 +7,14 @@ export function loadTeamsClassification() {
         .then(res => res.json())
         .then(teams => {
 
-            teams.sort(function(a, b){return a.teamRideTime - b.teamRideTime})
+            teams.sort(function(a, b){return a.teamRideTimeLong - b.teamRideTimeLong})
            
             const rows = teams.map(team => 
                 `
                 <tr id="row-id-${team.id}">
                   <td id="id-${team.id}">0</td>
                   <td value="${team.teamName}">${team.teamName}</td>
-                  <td id="time-id-${team.id}">${parseISO8601Duration(team.teamRideTime)}</td>
+                  <td id="time-id-${team.id}">${team.teamRideString}</td>
                 </tr>
                 `
                 ).join("\n")
