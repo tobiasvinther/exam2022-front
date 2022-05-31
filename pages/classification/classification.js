@@ -28,7 +28,7 @@ export function fetchRidersClassification() {
 
                 document.getElementById("rider-tbody-id").innerHTML = rows 
                 
-                //"calculate" placement for each rider
+                //"calculate" placement for each rider. Since the riders are already sorted we just need to put the correct number next to them
                 let curIteration = 1
                 riders.forEach(element => {
                     document.getElementById("id-" + element.id).innerText = curIteration

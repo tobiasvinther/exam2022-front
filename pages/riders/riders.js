@@ -2,6 +2,7 @@ const URL = "http://localhost:8080/api"
 
 import { makeOptions } from "../../fetchUtils.js";
 
+//populate table with riders
 export function fetchRiders() {
     fetch(URL + "/riders")
         .then(res => res.json())
@@ -10,14 +11,10 @@ export function fetchRiders() {
             const rows = riders.map(rider => 
                 `
                 <tr onclick="window.location='#/manage-rider/?id=${rider.id}';" style="cursor: pointer;">
-                  <td><img
-                  src="https://flagcdn.com/h20/fr.png"
-                  height="20"
-                  alt="South Africa"> ${rider.name}</td>
+                  <td>${rider.name}</td>
                   <td>${rider.birthDay}</td>
                   <td>${rider.country}</td>
-                  <td value="${rider.teamName}">${rider.teamName}</td>
-                  
+                  <td value="${rider.teamName}">${rider.teamName}</td>       
                 </tr>
                 `
                 ).join("\n")
@@ -78,7 +75,7 @@ function filterList() {
         })
 }
 
-//MODAL for add rider
+//modal
 export function modalButton() {
     document.getElementById("modal-add-id").onclick = loadTeamsInModal
 }
@@ -87,7 +84,7 @@ function loadTeamsInModal() {
     loadTeamsSelectModal()
 }
 
-//load the parties for the drop down inside the modal
+//load the teams for the drop down inside the modal
 function loadTeamsSelectModal() {
     fetch(URL + "/teams")
         .then(res => res.json())

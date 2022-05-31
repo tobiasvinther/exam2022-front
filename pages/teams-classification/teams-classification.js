@@ -25,19 +25,13 @@ export function loadTeamsClassification() {
                 let curIteration = 1
                 
                 teams.forEach(team => {
-                    //let totalRideTime = 0
+                    
                     document.getElementById("id-" + team.id).innerText = curIteration
                     if(curIteration == 1) {
                         document.getElementById("row-id-" + team.id).style.backgroundColor = "#ffff00"
                     }
                     curIteration++
-                    /*
-                    team.ridersOnTeam.forEach(rider => {
-                        totalRideTime = totalRideTime + rider.rideTime
-                    })
-                    let td = document.getElementById("time-id-" + team.id)
-                    td.innerHTML = totalRideTime
-                    */
+                    
                 });
                 
         })        

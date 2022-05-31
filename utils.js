@@ -78,38 +78,6 @@ export function encode(str) {
   return str;
 }
 
-/** 
- * Loads a template from the dom (for example a template in index.html)
- * @param {string} templateId Id for the template to load
- * @returns {HTMLTemplateElement}
-
-export function loadTemplateFromDom(templateId) {
-  const template = document.getElementById(templateId)
-  if(!template){
-    throw new Error(`No Element found with provided ID: '${templateId}'`)
-  }
-  if(template.nodeName !="TEMPLATE" ){
-    throw new Error(`Element with id: '${templateId}' was not an HtmlTemplate, but a ${template.nodeName}`)
-  }
-  return template
-}
-*/
-
-/**
- * Only meant for when Navigo is set to use Hash based routing (Always this semester)
- * If users try to enter your site with only "/", it will change this to "/#/" as required
- * for Hash based routing
- * Call it before you start using the router (add the specific routes)
- 
-export function adjustForMissingHash() {
-  let path = window.location.hash
-  if (path == "") { //Do this only for hash path = "#/"
-    window.history.pushState({}, path, window.location.href + path);
-  }
-}
-*/
-
-
 export function parseISO8601Duration (iso8601Duration) {
     const iso8601DurationRegex = /(-)?P(?:([.,\d]+)Y)?(?:([.,\d]+)M)?(?:([.,\d]+)W)?(?:([.,\d]+)D)?T(?:([.,\d]+)H)?(?:([.,\d]+)M)?(?:([.,\d]+)S)?/;
     let matches = iso8601Duration.match(iso8601DurationRegex);
